@@ -1,6 +1,6 @@
 Sur le site VirusTotal, nous avons analysé le Res.exe et il a testé 71 anti virus et 49 l'ont signalé comme malveillant.
 
-Sur le site Hybrid-Analysis, 29 anti-virus ont vérifié le fichier et 7 l'ont signalé comme malveillant.
+Sur le site Hybrid-Analysis, 26 anti-virus ont vérifié le fichier et 7 l'ont signalé comme malveillant.
 
 Ces 2 sites on montré que le logiciel est malveillant.
 
