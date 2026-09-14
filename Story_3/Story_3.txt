@@ -1,0 +1,1 @@
+Exécutable créé avec l'environement de dev mingw-w64
