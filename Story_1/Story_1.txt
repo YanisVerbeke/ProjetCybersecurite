@@ -1,0 +1,6 @@
+Installation d'une machine virtuelle Windows via VMWare.
+Téléchargement de l'iso Windows depuis Microsoft.
+
+Configuration de la machine virtuelle en réseau bridged, afin de ne pas conserver la même adresse IP que la machine hôte.
+
+Exécution du malware sur cette environnement isolé pour ne pas impacter la machine hôte.
