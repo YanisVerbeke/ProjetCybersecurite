@@ -1,0 +1,8 @@
+Le dump de la mémoire a été réalisé grâce à l'outil WinDbg.
+Après avoir ouvert l'exécutable Res.exe, on génère le dump avec la commande ".dump -ma [nom]", avec -ma qui permet de récupérer le détail complet.
+
+
+
+
+Super j'ai créé un dump de la mémoire et maintenant j'en fais quoi ???? 
+jsp devine frère on a pas de cours pour nous expliquer
