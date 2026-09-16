@@ -4,7 +4,12 @@ Sur le site Hybrid-Analysis, 26 anti-virus ont vérifié le fichier et 7 l'ont s
 
 Ces 2 sites on montré que le logiciel est malveillant.
 
+Selon le résultat de VirusTotal, on peut déterminer :
+- Qu'il s'agit d'un label populaire : trojan.keylogger/zbxji,
+- Que le fichier est un trojan et un spyware,
+- Qu'il est de la famille keylogger + zbxji,
+- Que c'est une menace connue et documentée.
 
-Tu trouveras joint au dossier de la story 2 des captures sur les analyses que nous avons réalisé.
+Nous pouvons trouver joint au dossier de la story 2 des captures sur les analyses que nous avons réalisé.
 
-Tu y trouveras également les différents hashage du malware.
+Nous y trouvons également les différents hashage du malware.
