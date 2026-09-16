@@ -1,4 +1,4 @@
 L'analyse du code assembleur de l'executable a permis de mettre en évidence la création d'un dossier à la racine du disque dur.
-L'exécutable a été créé avec l'environement de dev mingw-w64.
+L'exécutable a été créé avec l'environnement de dev mingw-w64.
 
 Un indicateur de compromission est trouvé dans les registres du PC au nom des exécutables du malware.

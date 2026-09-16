@@ -1,0 +1,66 @@
+US5
+
+1. Résumé du contexte
+
+Le malware identifié dans le cadre de ce projet est un trojan de type keylogger.
+Dans le cadre du scénario pédagogique du TP, ce malware est censé avoir été introduit via une clé USB compromise.
+Son comportement a été analysé statiquement (US3) et dynamiquement (US4) par l'équipe, et son identité a été confirmée par une recherche de réputation (US2).
+
+L'analyse statique (US3) a révélé que l'exécutable a été compilé avec l'environnement MinGW-W64, et que le code assembleur (ASCII) met en évidence la création d'un dossier à la racine
+du disque dur ainsi qu'un indicateur de compromission dans le registre Windows référençant les exécutables du malware.
+
+L'analyse dynamique (US4) a confirmé et détaillé ce comportement : à l'exécution, le malware dépose un ensemble de bibliothèques et un exécutable (Res.exe) dans le répertoire c:\WindSyst,
+met en place une persistance via la clé de registre HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Env (avec un mécanisme d'auto-régénération en cas d'interruption),
+puis agit comme keylogger en interceptant l'ensemble des frappes clavier du système (y compris dans le navigateur) pour les consigner dans un fichier journal (log.txt).
+
+Aucune activité réseau sortante n'a été observée lors de la surveillance via Process Hacker.
+
+Éléments de reconnaissance (US2 — VirusTotal)
+•	Label populaire : trojan.keylogger/zbxji — quasiment tous les antivirus s'accordent
+•	Catégories de menace : trojan + spyware
+•	Famille : keylogger / zbxji
+•	Détection : quasi unanime (Kaspersky, Microsoft, BitDefender, CrowdStrike, ESET, etc.) → menace connue et documentée, pas une menace inédite ou 0-day
+
+Axe	- Impact probable -	Justification
+Confidentialité -	Elevé -
+Keylogger confirmé : interception globale des frappes clavier (y compris navigation web), consignées dans log.txt - identifiants, mots de passe et données saisies sont exposés
+
+Intégrité	Moyen -
+Dépôt de plusieurs fichiers (DLL + exécutable Res.exe) dans c:\WindSyst, création d'une clé de registre de persistance (HKCU\...\Run\Env)
+
+Disponibilité -	Faible -
+Comportement discret par nature -  ne cherche pas à casser le système pour ne pas se faire repérer
+
+Persistance	- Elevé -
+Confirmée : relance automatique au démarrage via clé de registre Run, avec mécanisme d'auto-régénération en cas d'interruption du processus
+
+Exfiltration -	Faible -
+Aucune activité réseau sortante détectée via Process Hacker pendant l'exécution.
+Les données sont pour l'instant stockées localement dans log.txt, ce qui reste un risque si un accès physique ou distant ultérieur au fichier a lieu
+
+Niveau de risque global : élevé
+
+Justification :
+- Détection unanime par les antivirus → comportement malveillant confirmé (pas de faux positif)
+- Nature "spyware/keylogger" → vol de données sensibles, capture effective de toutes les frappes clavier, y compris lors de la navigation web
+- Vecteur d'infection = clé USB → intrusion physique possible, élargit le spectre de risque (pas seulement du phishing par email)
+- Même en l'absence d'exfiltration réseau observée lors du test, les données capturées restent stockées et exploitables localement (log.txt), ce qui maintient le risque de confidentialité à un niveau élevé
+
+Recommandations de mitigation (typiques pour un keylogger) :
+
+Techniques
+•	Désactivation de l'exécution automatique (autorun) des périphériques USB
+•	Politique de contrôle des périphériques USB (liste blanche, DLP)
+•	Solution EDR avec détection comportementale (certains antivirus ne détectent le malware que sous un label générique type "Application.Agent", signe qu'une détection par signature seule est insuffisante)
+•	Segmentation réseau pour limiter la portée d'une éventuelle exfiltration ou propagation
+
+Organisationnelles
+•	Sensibilisation du personnel sur les risques liés aux clés USB inconnues/non vérifiées
+•	Mise en place d'une procédure de signalement immédiat en cas de découverte de périphérique USB suspect
+•	Politique de sécurité formalisée sur l'usage des périphériques amovibles
+
+Correctives immédiates
+•	Changement immédiat de tous les mots de passe utilisés sur la machine compromise
+•	Isolation immédiate de la machine compromise du réseau
+•	Activation de l'authentification multi-facteurs pour limiter l'impact d'un vol d'identifiants
+•	Analyse complète des autres postes ayant pu être connectés à la même clé USB
