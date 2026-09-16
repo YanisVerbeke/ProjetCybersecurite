@@ -1,0 +1,20 @@
+Description du comportement observé :
+Lors de l'exécution de l'échantillon, le malware met en place les actions suivantes :
+
+    Création de fichiers et persistance :
+
+        Le malware crée le répertoire WindSyst sur la racine du disque dur.
+
+        Il y dépose plusieurs bibliothèques Dynamic Link Library (.dll) ainsi qu'un exécutable nommé Res.exe.
+
+        Res.exe s'exécute en arrière-plan et configure une persistance pour se relancer automatiquement à chaque démarrage du système (via HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Env). Il intègre également un mécanisme d'auto-régénération s'il est interrompu.
+
+    Capture d'activité (Keylogging) :
+
+        Le malware agit en tant que Keylogger : il intercepte les frappes du clavier globalement sur le système.
+
+        Il enregistre les saisies dans un fichier journal (log.txt), capturant les touches de contrôle (ex: [DEL], [Entree]) y compris quand je fais des recherches effectuées dans le navigateur web.
+
+Vous trouverez dans le dossier de la story 4 les images qui justifient mes propos.
+
+J'ai également effectué des recherches pendant que le logiciel Process Hacker était actif, j'ai regarder dans l'onglet network pour voir quels processus utilisaient internet et il ne l'utilise pas.
