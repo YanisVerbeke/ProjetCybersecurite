@@ -1,0 +1,1 @@
+Nous avons parcouru les fichiers présents dans le dump USB avec Autopsy, mais rien ne semble indiquer des logs d'utilisation de la clé USB.
