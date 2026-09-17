@@ -1,0 +1,23 @@
+1. Image disque bit-à-bit réalisée
+
+    Format d'image : Raw / dd.
+
+    Source : \\.\PHYSICALDRIVE0 
+    Destination : F:\ImageDisk.dd (Sauvegardé sur un second lecteur dédié).
+
+
+    Statut : Copie 100 % conforme et validée par les hashs de vérification présent dans la partie 2 des récapitulatif de l'image créer.
+
+2. Les outils utilisés
+
+    Acquisition de l'image disque : FTK Imager Lite.
+
+3. Fichiers suspects identifiés
+
+    Exécutable malveillant principal : C:WindSyst\Res.exe
+
+    Fichier journal du keylogger : C:WindSyst\log.txt (Contient la saisie des frappes clavier).
+
+    Dépendances associées : Fichiers .dll situés dans le répertoire WindSyst.
+
+    Traces de persistance : Inscription du binaire Res.exe dans la clé de registre Windows de démarrage automatique (HKCU\Software\Microsoft\Windows\CurrentVersion\Run).
