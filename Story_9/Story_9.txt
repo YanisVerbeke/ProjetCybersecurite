@@ -1,0 +1,3 @@
+Analyse du dump USB avec l'outil Autopsy.
+
+Numéro de série découvert dans le fichier SYSTEM.
