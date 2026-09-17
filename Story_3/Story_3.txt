@@ -1,3 +1,5 @@
+Nous avons analysé le malware avec le logiciel x32dbg.
+
 L'analyse du code assembleur de l'executable a permis de mettre en évidence la création d'un dossier à la racine du disque dur.
 L'exécutable a été créé avec l'environnement de dev mingw-w64.
 

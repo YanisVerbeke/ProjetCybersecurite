@@ -1,8 +1,6 @@
 Le dump de la mémoire a été réalisé grâce à l'outil WinDbg.
 Après avoir ouvert l'exécutable Res.exe, on génère le dump avec la commande ".dump -ma [nom]", avec -ma qui permet de récupérer le détail complet.
 
-
-
-
-Super j'ai créé un dump de la mémoire et maintenant j'en fais quoi ???? 
-jsp devine frère on a pas de cours pour nous expliquer
+Nous avons ensuite tenté d'analyser le dump avec plusieurs outils.
+Le logiciel WinDbg n'a pas donné de résultat facilement compréhensible, nous avons ensuite essayé avec Volatility.
+Après avoir récupéré le repo Git de Volatility et installé Python sur la machine virtuelle, impossible de lancer le programme tel que la documentation l'indiquait.
