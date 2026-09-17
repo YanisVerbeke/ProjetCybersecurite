@@ -1,0 +1,40 @@
+US8
+
+1. Résumé du contexte
+L'US8 consiste à corréler les éléments observés en mémoire vive (US6) avec ceux retrouvés sur l'image disque (US7),
+afin de vérifier la cohérence de l'ensemble des indices collectés et de reconstruire un scénario d'attaque unique.
+
+L'acquisition mémoire (US6) a permis d'identifier le processus Res.exe actif (PID 7576), lancé depuis le dossier Malware du poste compromis,
+sans connexion réseau active au moment de la capture. L'extraction des chaînes de caractères du dump a révélé le chemin \WindSyst\log.txt,
+indiquant que le malware écrit ses données localement.
+
+L'acquisition disque (US7), réalisée avec FTK Imager Lite au format raw/dd, a permis de localiser physiquement le dossier C:\WindSyst contenant l'exécutable Res.exe,
+ses bibliothèques (.dll) et le fichier log.txt, ainsi que la clé de registre de persistance HKCU\Software\Microsoft\Windows\CurrentVersion\Run.
+
+2. Eléments de corrélation (US6 – RAM / US7 – Disque)
+- Processus Res.exe actif en mémoire ↔ exécutable Res.exe retrouvé physiquement dans C:\WindSyst 
+- Chemin \WindSyst\log.txt révélé dans les chaînes de caractères du dump ↔ fichier log.txt présent sur le disque au même emplacement 
+- Bibliothèques chargées par le processus en mémoire ↔ fichiers .dll déposés dans le dossier WindSyst sur le disque 
+- Absence de connexion réseau observée en mémoire (Process Hacker) ↔ aucune trace d'exfiltration réseau relevée sur le disque 
+- Mécanisme de persistance observé en dynamique (US4) ↔ clé de registre HKCU...\Run confirmée dans l'image disque
+
+3. Justification
+- Le processus observé en mémoire correspond exactement au binaire déposé sur le disque, sans écart d'emplacement ni de nom de fichier 
+- Le fichier de logs identifié en mémoire est bien celui retrouvé sur le disque, confirmant que le keylogger fonctionne comme prévu et écrit ses données localement 
+- La persistance observée dynamiquement (relance automatique) est expliquée par la clé de registre retrouvée sur le disque 
+- Aucune contradiction n'est relevée entre les deux sources : l'analyse mémoire et l'analyse disque racontent la même histoire d'infection
+
+4. Tableau de correspondance
+Élément -	Constaté en mémoire (US6) -	Constaté sur le disque (US7)
+
+Processus	- Res.exe actif, PID 7576, lancé depuis Documents\Malware\VIRUS\Res.exe	- Exécutable Res.exe présent dans C:\WindSyst
+
+Fichier de logs	- Chemin \WindSyst\log.txt révélé par extraction de chaînes de caractères -	Fichier log.txt physiquement présent dans C:\WindSyst
+
+Dépendances -	Bibliothèques chargées par le processus en mémoire -	Fichiers .dll déposés dans le dossier WindSyst
+
+Réseau -	Aucune connexion active détectée (Process Hacker) -	Aucune trace d'exfiltration relevée sur le disque
+
+Persistance -	Auto-régénération observée à l'exécution (US4) -	Clé de registre HKCU...\Run confirmée dans l'image disque
+
+Conclusion : scénario d’attaque cohérent
