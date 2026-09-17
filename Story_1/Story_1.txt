@@ -1,6 +1,6 @@
-Installation d'une machine virtuelle Windows via VMWare.
-Téléchargement de l'iso Windows depuis Microsoft.
+Afin de pouvoir examiner le malware dans un environnement isolé sans risquer de compromettre notre machine, nous avons installé une machine virtuelle Windows via VMWare.
+Nous avons téléchargé une iso Windows depuis le site de Microsoft via l'utilitaire MediaCreationTool. 
 
-Configuration de la machine virtuelle en réseau bridged, afin de ne pas conserver la même adresse IP que la machine hôte.
+La machine virtuelle a été configurée en réseau bridged afin de ne pas conserver la même adresse IP que la machine hôte.
 
-Exécution du malware sur cette environnement isolé pour ne pas impacter la machine hôte.
+Le malware a ainsi pu être exécuté sur cet environnement isolé sans impacter la machine hôte.

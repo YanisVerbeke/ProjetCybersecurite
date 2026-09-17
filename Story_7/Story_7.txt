@@ -6,7 +6,7 @@
     Destination : F:\ImageDisk.dd (Sauvegardé sur un second lecteur dédié).
 
 
-    Statut : Copie 100 % conforme et validée par les hashs de vérification présent dans la partie 2 des récapitulatif de l'image créer.
+    Statut : Copie 100 % conforme et validée par les hashs de vérification présent dans la partie 2 des récapitulatifs de l'image créée.
 
 2. Les outils utilisés
 

@@ -1,3 +1,3 @@
-Nous avons parcouru les fichiers présents dans le dump USB avec Autopsy, mais rien ne semble indiquer des logs d'utilisation de la clé USB.
+Nous avons parcouru les fichiers présents dans le dump USB avec Autopsy, mais n'avons pas réussi à y trouver de logs indiquant l'utilisation du périphérique.
 
 En utilisant Registry Explorer, on obtient les informations suivantes : la date d’installation, la date de dernière connexion et la date de dernière déconnexion.

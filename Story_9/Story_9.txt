@@ -1,3 +1,3 @@
-Analyse du dump USB avec l'outil Autopsy.
+Le dump de la clé USB a été analysé avec l'outil Autopsy.
 
-Numéro de série découvert dans le fichier SYSTEM.
+L'analyse du fichier SYSTEM a permis de mettre en évidence la clé de registre USBSTOR référançant le périphérique SanDisk Cruzer Blade.
