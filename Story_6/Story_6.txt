@@ -1,6 +1,26 @@
-Le dump de la mémoire a été réalisé grâce à l'outil WinDbg.
-Après avoir ouvert l'exécutable Res.exe, on génère le dump avec la commande ".dump -ma [nom]", avec -ma qui permet de récupérer le détail complet.
+1. Outils et commandes utilisés
 
-Nous avons ensuite tenté d'analyser le dump avec plusieurs outils.
-Le logiciel WinDbg n'a pas donné de résultat facilement compréhensible, nous avons ensuite essayé avec Volatility.
-Après avoir récupéré le repo Git de Volatility et installé Python sur la machine virtuelle, impossible de lancer le programme tel que la documentation l'indiquait.
+    Dump RAM : FTK Imager Lite (Menu File > Capture Memory).
+
+    Analyse mémoire : Process Hacker (Inspection des onglets Processes, Network et Memory).
+
+2. Dump RAM complet et exploitable
+
+    Fichier généré : mem_dump.mem
+
+    Taille : 5Go
+
+    Statut : Dump complet, intègre et exploitable.
+
+3. Processus actifs identifiés
+
+    Nom : Res.exe
+
+    Chemin : C:\Users\[Utilisateur]\AppData\Roaming\WindSyst\Res.exe
+
+    Analyse : Processus malveillant actif en arrière-plan généré depuis le dossier caché WindSyst.
+
+4. Connexions réseau suspectes relevées avec ProcessHacker
+
+    Résultat : Aucune connexion réseau active détectée dans l'onglet Network pour Res.exe.
+
